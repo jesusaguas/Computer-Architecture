@@ -1,0 +1,123 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             datos, DATA, READWRITE
+    2 00000000 0000001C 
+                       long    EQU              7*4
+    3 00000000 00000001 
+              00000002 
+              00000004 
+              00000006 
+              00000008 
+              00000007 
+              00000009 serie   DCD              1, 2, 4, 6, 8, 7, 9
+    4 0000001C 00      resul   DCB              0
+    5 0000001D                 AREA             prog, CODE, READONLY
+    6 00000000         
+    7 00000000                 ENTRY
+    8 00000000 E3A00000        mov              r0, #0
+    9 00000004 E0211001        eor              r1, r1, r1  ;result variable
+   10 00000008         
+   11 00000008 E59F201C        ldr              r2, =serie
+   12 0000000C E7923000 
+                       buc     ldr              r3, [r2, r0]
+   13 00000010 E0811003        add              r1, r1, r3
+   14 00000014 E2800004        add              r0, r0, #4
+   15 00000018 E350001C        cmp              r0, #long
+   16 0000001C 1AFFFFFA        bne              buc
+   17 00000020         
+   18 00000020 E59F2008        ldr              r2, =resul
+   19 00000024 E5821000        str              r1, [r2]
+   20 00000028         
+   21 00000028 EAFFFFFE 
+                       fin     b                fin
+   22 0000002C         
+   23 0000002C                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\practica1.d -o.\objects\practica1.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_
+v5\ARM\CMSIS\Include -IC:\Keil_v5\ARM\Inc\Philips --predefine="__EVAL SETA 1" -
+-predefine="__UVISION_VERSION SETA 514" --list=.\listings\practica1.lst ..\prac
+tica1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+datos 00000000
+
+Symbol: datos
+   Definitions
+      At line 1 in file ..\practica1.s
+   Uses
+      None
+Comment: datos unused
+resul 0000001C
+
+Symbol: resul
+   Definitions
+      At line 4 in file ..\practica1.s
+   Uses
+      At line 18 in file ..\practica1.s
+Comment: resul used once
+serie 00000000
+
+Symbol: serie
+   Definitions
+      At line 3 in file ..\practica1.s
+   Uses
+      At line 11 in file ..\practica1.s
+Comment: serie used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+buc 0000000C
+
+Symbol: buc
+   Definitions
+      At line 12 in file ..\practica1.s
+   Uses
+      At line 16 in file ..\practica1.s
+Comment: buc used once
+fin 00000028
+
+Symbol: fin
+   Definitions
+      At line 21 in file ..\practica1.s
+   Uses
+      At line 21 in file ..\practica1.s
+Comment: fin used once
+prog 00000000
+
+Symbol: prog
+   Definitions
+      At line 5 in file ..\practica1.s
+   Uses
+      None
+Comment: prog unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+long 0000001C
+
+Symbol: long
+   Definitions
+      At line 2 in file ..\practica1.s
+   Uses
+      At line 15 in file ..\practica1.s
+Comment: long used once
+1 symbol
+341 symbols in table

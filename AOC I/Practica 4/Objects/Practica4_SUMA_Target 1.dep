@@ -1,0 +1,2 @@
+Dependencies for Project 'Practica4_SUMA', Target 'Target 1': (DO NOT MODIFY !)
+F (.\practica4_SUMA.s)(0x5B140695)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_v5\ARM\RV31\INC-I C:\Keil_v5\ARM\CMSIS\Include-I C:\Keil_v5\ARM\Inc\Philips--pd "__UVISION_VERSION SETA 514"--list .\listings\practica4_suma.lst --xref -o .\objects\practica4_suma.o --depend .\objects\practica4_suma.d)

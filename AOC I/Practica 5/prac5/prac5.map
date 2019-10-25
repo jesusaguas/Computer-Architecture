@@ -1,0 +1,170 @@
+Component: ARM Compiler 5.05 update 1 (build 106) Tool: armlink [4d0efa]
+
+==============================================================================
+
+Section Cross References
+
+    startup.o(RESET) refers to prac5.o(codigo) for inicio
+    startup.o(.text) refers to startup.o(HEAP) for Heap_Mem
+    startup.o(.text) refers to startup.o(STACK) for Stack_Mem
+    prac5.o(codigo) refers to rand.o(codigo) for srand
+    prac5.o(codigo) refers to prac5.o(datos) for randomnextfant
+    rand.o(codigo) refers to rand.o(datos) for rand_x
+
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing startup.o(STACK), (2048 bytes).
+    Removing startup.o(HEAP), (0 bytes).
+    Removing startup.o(.text), (28 bytes).
+
+3 unused section(s) (total 2076 bytes) removed from the image.
+
+==============================================================================
+
+Image Symbol Table
+
+    Local Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    RESET                                    0x00000000   Section      708  startup.o(RESET)
+    Startup.s                                0x00000000   Number         0  startup.o ABSOLUTE
+    prac5.s                                  0x00000000   Number         0  prac5.o ABSOLUTE
+    rand.s                                   0x00000000   Number         0  rand.o ABSOLUTE
+    RSE_Undef                                0x00000040   ARM Code       4  startup.o(RESET)
+    RSE_PAbt                                 0x00000044   ARM Code       4  startup.o(RESET)
+    RSE_DAbt                                 0x00000048   ARM Code       4  startup.o(RESET)
+    RSE_IRQ                                  0x0000004c   ARM Code       4  startup.o(RESET)
+    RSE_FIQ                                  0x00000050   ARM Code       4  startup.o(RESET)
+    RSE_Reset                                0x00000054   ARM Code       0  startup.o(RESET)
+    chanel2irq                               0x00000168   Data          16  startup.o(RESET)
+    SO_T                                     0x00000178   Data           4  startup.o(RESET)
+    SO_E1                                    0x0000017c   Data          29  startup.o(RESET)
+    SO_N                                     0x00000199   Data          48  startup.o(RESET)
+    SO_E2                                    0x000001c9   Data          15  startup.o(RESET)
+    RSE_SWI                                  0x000001d8   ARM Code       0  startup.o(RESET)
+    SO4                                      0x0000023c   ARM Code       0  startup.o(RESET)
+    codigo                                   0x40000000   Section     3364  prac5.o(codigo)
+    RSI_reloj                                0x40000afc   ARM Code       0  prac5.o(codigo)
+    RSI_teclado                              0x40000b8c   ARM Code       0  prac5.o(codigo)
+    codigo                                   0x40000d24   Section      100  rand.o(codigo)
+    datos                                    0x40000d88   Section       77  prac5.o(datos)
+    arroba                                   0x40000d88   Data           4  prac5.o(datos)
+    fantasma1                                0x40000d8c   Data           4  prac5.o(datos)
+    fantasma2                                0x40000d90   Data           4  prac5.o(datos)
+    fantasma3                                0x40000d94   Data           4  prac5.o(datos)
+    fantasma4                                0x40000d98   Data           4  prac5.o(datos)
+    ticspacman                               0x40000d9c   Data           1  prac5.o(datos)
+    ticsfantasma                             0x40000d9d   Data           1  prac5.o(datos)
+    ticsnextfant                             0x40000d9e   Data           1  prac5.o(datos)
+    ticsdisparo                              0x40000d9f   Data           1  prac5.o(datos)
+    objfant1                                 0x40000da0   Data           1  prac5.o(datos)
+    objfant2                                 0x40000da1   Data           1  prac5.o(datos)
+    objfant3                                 0x40000da2   Data           1  prac5.o(datos)
+    objfant4                                 0x40000da3   Data           1  prac5.o(datos)
+    menswin                                  0x40000da4   Data           8  prac5.o(datos)
+    menslose                                 0x40000dac   Data           8  prac5.o(datos)
+    mensquit                                 0x40000db4   Data           8  prac5.o(datos)
+    mensajevidas                             0x40000dbc   Data           5  prac5.o(datos)
+    mensajepuntos                            0x40000dc1   Data           6  prac5.o(datos)
+    tokens                                   0x40000dc7   Data           1  prac5.o(datos)
+    unidades                                 0x40000dc8   Data           1  prac5.o(datos)
+    decenas                                  0x40000dc9   Data           1  prac5.o(datos)
+    centenas                                 0x40000dca   Data           1  prac5.o(datos)
+    numfantasmas                             0x40000dcb   Data           1  prac5.o(datos)
+    randomnextfant                           0x40000dcc   Data           1  prac5.o(datos)
+    dirx                                     0x40000dcd   Data           1  prac5.o(datos)
+    diry                                     0x40000dce   Data           1  prac5.o(datos)
+    tecla                                    0x40000dcf   Data           1  prac5.o(datos)
+    fin                                      0x40000dd0   Data           1  prac5.o(datos)
+    velpacman                                0x40000dd1   Data           1  prac5.o(datos)
+    velfantasmas                             0x40000dd2   Data           1  prac5.o(datos)
+    vidas                                    0x40000dd3   Data           1  prac5.o(datos)
+    tokens2win                               0x40000dd4   Data           1  prac5.o(datos)
+    datos                                    0x40000dd8   Section       12  rand.o(datos)
+    rand_x                                   0x40000dd8   Data           4  rand.o(datos)
+    rand_a                                   0x40000ddc   Data           4  rand.o(datos)
+    rand_c                                   0x40000de0   Data           4  rand.o(datos)
+
+    Global Symbols
+
+    Symbol Name                              Value     Ov Type        Size  Object(Section)
+
+    BuildAttributes$$THM_ISAv1$ARM_ISAv4$S$PE$A:L22$X:L11$S22$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$EBA8$STANDARDLIB$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
+    inicio                                   0x40000000   ARM Code       0  prac5.o(codigo)
+    srand                                    0x40000d24   ARM Code       4  rand.o(codigo)
+    rand                                     0x40000d40   ARM Code       4  rand.o(codigo)
+
+
+
+==============================================================================
+
+Memory Map of the image
+
+  Image Entry point : 0x00000000
+
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x000002c4, Max: 0x00020000, ABSOLUTE)
+
+    Execution Region ER_IROM1 (Base: 0x00000000, Size: 0x000002c4, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x00000000   0x000002c4   Code   RO            3  * RESET               startup.o
+
+
+
+  Load Region LR_IRAM1 (Base: 0x40000000, Size: 0x00000de4, Max: 0x00008000, ABSOLUTE)
+
+    Execution Region ER_IRAM1 (Base: 0x40000000, Size: 0x00000de4, Max: 0xffffffff, ABSOLUTE)
+
+    Base Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x40000000   0x00000d24   Code   RO           12    codigo              prac5.o
+    0x40000d24   0x00000064   Code   RO           16    codigo              rand.o
+    0x40000d88   0x0000004d   Data   RW           11    datos               prac5.o
+    0x40000dd5   0x00000003   PAD
+    0x40000dd8   0x0000000c   Data   RW           15    datos               rand.o
+
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+      3364        204          0         77          0       1016   prac5.o
+       100         12          0         12          0        236   rand.o
+       708        224          0          0          0        408   startup.o
+
+    ----------------------------------------------------------------------
+      4172        440          0         92          0       1660   Object Totals
+         0          0          0          0          0          0   (incl. Generated)
+         0          0          0          3          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+         0          0          0          0          0          0   Library Totals
+         0          0          0          0          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+      4172        440          0         92          0       1660   Grand Totals
+      4172        440          0         92          0       1660   ELF Image Totals
+      4172        440          0         92          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                 4172 (   4.07kB)
+    Total RW  Size (RW Data + ZI Data)                92 (   0.09kB)
+    Total ROM Size (Code + RO Data + RW Data)       4264 (   4.16kB)
+
+==============================================================================
+

@@ -1,0 +1,5 @@
+LR_IRAM1 0x40000000 0x00004000  {  ; load region
+ ER_IRAM1 0x40000000 {  ; RW data
+   * (+RO +RW +ZI)
+ }
+}

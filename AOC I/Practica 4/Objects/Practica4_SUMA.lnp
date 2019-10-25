@@ -1,0 +1,6 @@
+--cpu ARM7TDMI
+".\objects\practica4_suma.o"
+--strict --scatter ".\practica4.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Practica4_SUMA.map" -o .\Objects\Practica4_SUMA.axf
