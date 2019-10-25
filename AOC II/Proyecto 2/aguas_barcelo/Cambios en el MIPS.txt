@@ -1,0 +1,66 @@
+En la P2 hay que trabajar con el procesador de la P1 pero sustituyendo el componente de memoria de datos por el la nueva jerarquía de memoria con MC y MD conectados por un bus.
+Para ello hay que quitar el componente
+component memoriaRAM_D is port (
+		CLK : in std_logic;
+		ADDR : in std_logic_vector (31 downto 0); --Dir 
+        Din : in std_logic_vector (31 downto 0);--entrada de datos para el puerto de escritura
+        WE : in std_logic;		-- write enable	
+		RE : in std_logic;		-- read enable		  
+		Dout : out std_logic_vector (31 downto 0));
+end component;
+
+y sustituirlo por 
+
+component MD_mas_MC is port (
+		  CLK : in std_logic;
+		  reset: in std_logic; 
+		  ADDR : in std_logic_vector (31 downto 0); --Dir solicitada por el Mips
+          Din : in std_logic_vector (31 downto 0);--entrada de datos desde el Mips
+          WE : in std_logic;		-- write enable	del MIPS
+		  RE : in std_logic;		-- read enable del MIPS	
+		  Mem_ready: out std_logic; -- indica si podemos hacer la operación solicitada en el ciclo actual
+		  Dout : out std_logic_vector (31 downto 0) --dato que se envía al Mips
+		  ); --salida que puede leer el MIPS
+end component;
+
+Lo mismo al instanciarlo. Hay que sustituir:
+
+Mem_D: memoriaRAM_D PORT MAP (CLK => CLK, ADDR => ALU_out_MEM, Din => BusB_MEM, WE => MemWrite_MEM, RE => MemRead_MEM, Dout => Mem_out);
+
+por 
+
+Mem_D: MD_mas_MC PORT MAP (CLK => CLK, reset => reset, ADDR => ALU_out_MEM, Din => BusB_MEM, WE => MemWrite_MEM, RE => MemRead_MEM, Mem_ready => Mem_ready, Dout => Mem_out);
+
+Tambien hay que declarar la señal Mem_ready
+
+signal Mem_ready : std_logic;
+
+Después debéis usar la señal Mem_ready para parar el procesador cuando corresponda.
+
+A parte hay que añadir los contadores. 
+
+Para ello hay que incluir el componente counter:
+
+component counter is
+    Port ( clk : in  STD_LOGIC;
+           reset : in  STD_LOGIC;
+           count_enable : in  STD_LOGIC;
+           load : in  STD_LOGIC;
+           D_in  : in  STD_LOGIC_VECTOR (7 downto 0);
+		   count : out  STD_LOGIC_VECTOR (7 downto 0));
+end component;	  
+
+e instanciar un contador para cada métrica que queramos medir:
+
+cont_ciclos: counter port map (clk => clk, reset => reset, count_enable => '1' , load=> '0', D_in => "00000000", count => ciclos);
+cont_paradas_control: counter port map (clk => clk, reset => reset, count_enable => inc_paradas_control , load=> '0', D_in => "00000000", count => paradas_control);
+cont_paradas_datos: counter port map (clk => clk, reset => reset, count_enable => inc_paradas_datos , load=> '0', D_in => "00000000", count => paradas_datos);
+cont_paradas_memoria: counter port map (clk => clk, reset => reset, count_enable => inc_paradas_memoria , load=> '0', D_in => "00000000", count => paradas_memoria);
+cont_mem_reads: counter port map (clk => clk, reset => reset, count_enable => inc_mem_reads , load=> '0', D_in => "00000000", count => mem_reads);
+cont_mem_writes: counter port map (clk => clk, reset => reset, count_enable => inc_mem_writes , load=> '0', D_in => "00000000", count => mem_writes);
+
+Además hay que declarar las señales:
+
+signal ciclos, paradas_control, paradas_datos, paradas_memoria, mem_reads, mem_writes: std_logic_vector(7 downto 0); 
+signal inc_paradas_control, inc_paradas_datos, inc_paradas_memoria, inc_mem_reads, inc_mem_writes : std_logic;
+

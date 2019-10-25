@@ -1,0 +1,22 @@
+<?xml version='1.0'?>
+<!DOCTYPE qfsmproject SYSTEM 'qfsm.dtd'>
+<qfsmproject version="0.54" author="Qfsm">
+  <machine nummooreout="0" transfontitalic="0" draw_it="1" statefontsize="8" transfont="Helvetica" statefontitalic="0" author="" description="" version="" name="UC_MC" arrowtype="1" numbits="3" statefontweight="50" statefont="Helvetica" numin="0" transfontsize="8" transfontweight="50" type="2" numout="0" initialstate="0">
+    <outputnames_moore></outputnames_moore>
+    <inputnames></inputnames>
+    <outputnames></outputnames>
+    <itransition ypos="460" endx="208.3333333333333" xpos="123.3333333333333" endy="460"/>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="460" code="0" xpos="308.3333333333333" linewidth="1">Inicio</state>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="460" code="1" xpos="308.3333333333333" linewidth="1">State_0</state>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="174" code="2" xpos="758" linewidth="1">State_2</state>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="820" code="3" xpos="681" linewidth="1">State_3</state>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="804" code="4" xpos="1263" linewidth="1">State_4</state>
+    <state pencolor="0" exit_actions="" radius="100" description="" finalstate="0" entry_actions="" moore_outputs="" ypos="194" code="5" xpos="1241" linewidth="1">State_5</state>
+    <transition c1x="165.4787898573164" c2y="214.6845424371283" c1y="315.1843590966286" description="" straight="0" type="2" ypos="392.7025491956506" endx="344.4408609254537" xpos="234.3667657826069" endy="366.746332773535" c2x="312.5567666863051">
+      <from>0</from>
+      <to>0</to>
+      <inputs default="0" any="0" invert="0">RE=0 &amp; WE=0</inputs>
+      <outputs>ready=1</outputs>
+    </transition>
+  </machine>
+</qfsmproject>
